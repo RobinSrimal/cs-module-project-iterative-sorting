@@ -1,24 +1,80 @@
 # TO-DO: Complete the selection_sort() function below
+def swapPositions(list, pos1, pos2): 
+      
+    # popping both the elements from list 
+    first_ele = list.pop(pos1)    
+    second_ele = list.pop(pos2-1) 
+     
+    # inserting in each others positions 
+    list.insert(pos1, second_ele)   
+    list.insert(pos2, first_ele)   
+      
+    return list
+
 def selection_sort(arr):
-    # loop through n-1 elements
+
+    if len(arr) < 2:
+
+        return arr
+
     for i in range(0, len(arr) - 1):
         cur_index = i
         smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
 
+        for t in range(cur_index, len(arr)):
 
-        # TO-DO: swap
-        # Your code here
+            if arr[t] < arr[smallest_index]:
+
+                smallest_index = t
+
+        if cur_index == smallest_index:
+
+            continue
+
+        else:
+
+            swapPositions(arr, cur_index, smallest_index) 
+        
 
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
+
+def swap(arr, pos):
+
+    element = arr.pop(pos)
+
+    arr.insert(pos + 1, element)
+
+    return arr
+
+
 def bubble_sort(arr):
     # Your code here
 
+    if len(arr) < 2:
+
+        return arr
+
+    switch = True
+
+    while switch:
+
+        counter = 0
+
+        for i in range(len(arr) -1):
+
+        
+            if arr[i] > arr[i + 1]:
+
+                swap(arr, i)
+
+                counter += 1
+        
+        if counter == 0:
+
+            switch = False
 
     return arr
 
